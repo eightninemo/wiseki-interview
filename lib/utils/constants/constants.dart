@@ -2,15 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wisekinoteapp/add_notes.dart';
 import 'package:wisekinoteapp/utils/constants/navigation.dart';
 import 'package:wisekinoteapp/utils/constants/text_style.dart';
-
-import '../../services/api_service.dart';
-
-final dataProvider = Provider<ApiServices>((ref) => ApiServices());
 
 Map<String, String> headers = {
   HttpHeaders.contentTypeHeader: "application/json"

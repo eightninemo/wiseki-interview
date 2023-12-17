@@ -1,7 +1,5 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../utils/constants/constants.dart';
-
 // shows the state of loading
 var isLoadingProvider = StateProvider((ref) {
   return false;
@@ -21,7 +19,3 @@ var searchText = StateProvider((ref) {
 var searchResult = StateProvider((ref) {
   return [];
 });
-
-// shows the state of the note data
-final userDataProvider =
-    FutureProvider((ref) => ref.watch(dataProvider).noteData);

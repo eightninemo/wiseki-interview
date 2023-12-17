@@ -4,9 +4,9 @@ import 'package:wisekinoteapp/utils/constants/colors.dart';
 class AppTheme {
   static final lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: colorWhite,
-      iconTheme: const IconThemeData(
+      iconTheme: IconThemeData(
         color: colorBlack,
       ),
     ),
@@ -25,9 +25,9 @@ class AppTheme {
 
   static final darkTheme = ThemeData(
     scaffoldBackgroundColor: Colors.black,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: colorBlack,
-      iconTheme: const IconThemeData(
+      iconTheme: IconThemeData(
         color: Colors.black,
       ),
     ),

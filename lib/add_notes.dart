@@ -8,7 +8,7 @@ import 'package:wisekinoteapp/utils/constants/navigation.dart';
 import 'utils/constants/constants.dart';
 import 'utils/constants/input_fields.dart';
 import 'utils/constants/text_style.dart';
-import 'services/data_provider.dart';
+
 import 'services/state_provider.dart';
 
 class AddNotes extends ConsumerStatefulWidget {
@@ -96,8 +96,6 @@ class _AddNotesState extends ConsumerState<AddNotes> {
                             if (_formKey.currentState!.validate()) {
                               ref.read(isLoadingProvider.notifier).state = true;
                               print(title + ' ' + note + ' ' + result);
-                              ref.read(newNoteProvider(
-                                  context, title, note, result));
                               _clearField();
                               Future.delayed(const Duration(seconds: 5), () {
                                 ref.read(isLoadingProvider.notifier).state =
