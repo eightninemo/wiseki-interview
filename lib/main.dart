@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:wisekinoteapp/home_page.dart';
 import 'package:wisekinoteapp/utils/theme_provider/app_theme.dart';
 
+import 'pages/home_page.dart';
 import 'utils/theme_provider/theme_provider.dart';
 
 void main() {
@@ -24,7 +24,6 @@ class MyApp extends HookConsumerWidget {
     final appThemeState = ref.watch(appThemeStateNotifier);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode:

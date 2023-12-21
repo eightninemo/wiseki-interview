@@ -1,59 +1,17 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
-final primaryColor = Color(0xff00598B);
-final secondaryColor = Color(0xffF0BA63);
-final scaffoldColor = Color(0xFFFFFFFF);
-const successColor = Color(0xFF106012);
-const errorColor = Color(0xFFD00202);
-const colorGrey = Color(0xFF505050);
-const colorBlack = Color(0xFF1D1E24);
-const colorWhite = Color(0xffFFFFFF);
-final fillTextColor = Color(0xFFF1F1F1);
+// Constant Style
+const scaffoldBGColor = Color(0xFFffffff);
+const colorBlack = Color(0xFF111111);
+const colorWhite = Color(0xffffffff);
+const errorColor = Color(0xFFD92D20);
+const successColor = Color(0xFF027A48);
 
-const wbackgroundColor1 = LinearGradient(
-  begin: Alignment.topLeft,
-  end: Alignment(0.8, 1),
-  colors: <Color>[
-    Color(0xff642b73),
-    Color(0xffc6426e),
-  ],
-  tileMode: TileMode.mirror,
-);
-final wbackgroundColor2 = LinearGradient(
-  begin: Alignment.topLeft,
-  end: Alignment(0.8, 1),
-  colors: <Color>[
-    primaryColor,
-    primaryColor,
-  ],
-  tileMode: TileMode.mirror,
-);
-const wbackgroundColor3 = LinearGradient(
-  begin: Alignment.topLeft,
-  end: Alignment(0.8, 1),
-  colors: <Color>[
-    Color(0xff480048),
-    Color(0xff480f48),
-  ],
-  tileMode: TileMode.mirror,
-);
-const wbackgroundColor4 = LinearGradient(
-  begin: Alignment.topLeft,
-  end: Alignment(0.8, 1),
-  colors: <Color>[
-    Color(0xffcb356b),
-    Color(0xffbd3f32),
-  ],
-  tileMode: TileMode.mirror,
-);
-const wbackgroundColor5 = LinearGradient(
-  begin: Alignment.topLeft,
-  end: Alignment(0.8, 1),
-  colors: <Color>[
-    Color(0xff56ccf2),
-    Color(0xff56ccff),
-  ],
-  tileMode: TileMode.mirror,
-);
+// Gray Style
+const colorGray50 = Color(0xFFe1e1e1);
+const colorGray100 = Color(0xFFF2F4F7);
+const colorGray400 = Color(0xFF98A2B3);
+const colorGray700 = Color(0xFF344054);
+
+// Primary Style
+const primaryColor = Color(0xff0B4A6F);

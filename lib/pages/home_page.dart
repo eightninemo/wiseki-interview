@@ -3,14 +3,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wisekinoteapp/add_notes.dart';
-import 'package:wisekinoteapp/services/state_provider.dart';
+import 'package:wisekinoteapp/providers/state_provider.dart';
 import 'package:wisekinoteapp/utils/constants/colors.dart';
 import 'package:wisekinoteapp/utils/constants/constants.dart';
 import 'package:wisekinoteapp/utils/constants/navigation.dart';
 import 'package:wisekinoteapp/utils/constants/text_style.dart';
 
-import 'utils/constants/input_fields.dart';
+import '../utils/constants/input_fields.dart';
+import '../widgets/pinned_notes_widget.dart';
+import '../widgets/saved_notes_widget.dart';
+import 'add_notes_page.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -55,14 +57,18 @@ class _HomePageState extends ConsumerState<HomePage> {
               children: [
                 showSearch
                     ? Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            width: 300,
-                            child: textInput(
-                              context,
-                              searchController,
-                              hintText: 'Search Note',
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15),
+                            child: SizedBox(
+                              width: 320,
+                              height: 40,
+                              child: textInput(
+                                context,
+                                searchController,
+                                hintText: 'Search Note',
+                              ),
                             ),
                           ),
                           const SizedBox(width: 10),
@@ -71,11 +77,17 @@ class _HomePageState extends ConsumerState<HomePage> {
                               ref.read(showSearchProvider.notifier).state =
                                   false;
                             },
-                            child: const Icon(CupertinoIcons.multiply),
+                            child: const Icon(
+                              CupertinoIcons.multiply,
+                              size: 20,
+                            ),
                           )
                         ],
                       )
                     : Container(),
+                showSearch
+                    ? const SizedBox(height: 20)
+                    : const SizedBox(height: 0),
                 homeiconlist(),
                 Padding(
                   padding: const EdgeInsets.only(left: 10),
@@ -97,10 +109,9 @@ class _HomePageState extends ConsumerState<HomePage> {
                 ),
               ],
             ),
-            const SizedBox(height: 10),
             const SizedBox(
-              height: 400,
-              // child: Pinned(), // widget to display list of pinned widget.
+              height: 350,
+              child: PinnedNotes(), // widget to display list of pinned widget.
             ),
             Padding(
               padding: const EdgeInsets.only(left: 10),
@@ -108,7 +119,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    'SAVED NOTES',
+                    'OTHER NOTES',
                     style: mediumtextStyle(16),
                   ),
                   const SizedBox(width: 5),
@@ -122,8 +133,8 @@ class _HomePageState extends ConsumerState<HomePage> {
             ),
             const SizedBox(height: 10),
             const SizedBox(
-              height: 400,
-              // child: Saved(), // widget to display list of saved widget.
+              height: 350,
+              child: SavedNotes(), // widget to display list of saved widget.
             ),
           ],
         ),

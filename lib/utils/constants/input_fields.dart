@@ -77,7 +77,7 @@ Widget textInput(
             ),
           ),
           hintText: hintText ?? "Your Text",
-          hintStyle: hintStyle ?? regulartextStyle(14, colorGrey),
+          hintStyle: hintStyle ?? regulartextStyle(14, colorGray400),
           errorText: errorText,
           prefixText: defaultText,
           prefixStyle: prefixStyle,

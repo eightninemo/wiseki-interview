@@ -3,9 +3,11 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:wisekinoteapp/add_notes.dart';
-import 'package:wisekinoteapp/utils/constants/navigation.dart';
+import 'package:wisekinoteapp/pages/all_note_page.dart';
 import 'package:wisekinoteapp/utils/constants/text_style.dart';
+
+import 'colors.dart';
+import 'navigation.dart';
 
 Map<String, String> headers = {
   HttpHeaders.contentTypeHeader: "application/json"
@@ -13,14 +15,29 @@ Map<String, String> headers = {
 
 String baseUrl = 'https://wiseki-end.onrender.com';
 
-Widget loadingWidget([Color? color]) => Center(
+BoxDecoration noteDecoration() => const BoxDecoration(
+      border: Border(
+        bottom: BorderSide(color: colorGray400),
+      ),
+    );
+
+Widget loadingWidget([Color? color]) => const Center(
       child: SizedBox(
         height: 20,
         width: 20,
         child: CircularProgressIndicator(
           strokeWidth: 2,
-          color: color ?? Colors.white,
+          color: colorBlack,
         ),
+      ),
+    );
+// close button with icon.
+Widget closeIconButton(BuildContext context, [Widget? icon]) => GestureDetector(
+      onTap: () => pop(context),
+      child: SizedBox(
+        height: 40,
+        width: 40,
+        child: icon ?? const Icon(CupertinoIcons.arrow_left),
       ),
     );
 
@@ -53,23 +70,16 @@ Widget drawerlist(context) => Drawer(
           children: [
             InkWell(
               onTap: () {
-                pushTo(context, const AddNotes(), PushStyle.cupertino);
+                pop(context);
+                pushTo(context, const AllNote());
               },
               child: Row(
                 children: [
-                  const Icon(CupertinoIcons.add, size: 16),
+                  const Icon(CupertinoIcons.archivebox, size: 16),
                   const SizedBox(width: 10),
-                  Text('Add New Note', style: mediumtextStyle(14)),
+                  Text('All Notes', style: mediumtextStyle(14)),
                 ],
               ),
-            ),
-            const SizedBox(height: 60),
-            Row(
-              children: [
-                const Icon(CupertinoIcons.archivebox, size: 16),
-                const SizedBox(width: 10),
-                Text('All Notes', style: mediumtextStyle(14)),
-              ],
             ),
             const SizedBox(height: 40),
             Row(
